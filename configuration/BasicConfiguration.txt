@@ -1,0 +1,7 @@
+BackgroundImage,resources/images/ThomasWithWhiteBackground.jpg
+LeftButtonRect,50;200;64;64
+LeftButtonImage,resources/images/TrainWhistleThumb.jpg
+LeftButtonFile,resources/sounds/TrainWhistle.mp3
+MiddleButtonRect,200;200;64;64
+MiddleButtonImage,resources/images/ThomasThumb.jpg
+MiddleButtonFile,resources/sounds/ThomasTheme.mp3
