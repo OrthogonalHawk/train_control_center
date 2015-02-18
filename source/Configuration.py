@@ -7,6 +7,7 @@ class Configuration:
 
     # Expected options
     backgroundImageOption = "BackgroundImage"
+
     leftButtonRectOption = "LeftButtonRect"
     leftButtonImageOption = "LeftButtonImage"
     leftButtonFileOption = "LeftButtonFile"
@@ -14,6 +15,10 @@ class Configuration:
     middleButtonRectOption = "MiddleButtonRect"
     middleButtonImageOption = "MiddleButtonImage"
     middleButtonFileOption = "MiddleButtonFile"
+
+    rightButtonRectOption = "RightButtonRect"
+    rightButtonImageOption = "RightButtonImage"
+    rightButtonFileOption = "RightButtonFile"
 
     def __init__(self, configFilePath):
         """Class constructor; parses the provided configuration file."""
@@ -74,15 +79,24 @@ class Configuration:
     def getLeftButtonImage(self):
         return self._getConfigurationOption(self.leftButtonImageOption)
 
-    def getMiddleButtonRect(self):
-        return self.getRectOption(self.middleButtonRectOption)
-
     def getLeftFile(self):
         return self._getConfigurationOption(self.leftButtonFileOption)
+
+    def getMiddleButtonRect(self):
+        return self.getRectOption(self.middleButtonRectOption)
 
     def getMiddleButtonImage(self):
         return self._getConfigurationOption(self.middleButtonImageOption)
 
     def getMiddleFile(self):
         return self._getConfigurationOption(self.middleButtonFileOption)
+
+    def getRightButtonRect(self):
+        return self.getRectOption(self.rightButtonRectOption)
+
+    def getRightButtonImage(self):
+        return self._getConfigurationOption(self.rightButtonImageOption)
+   
+    def getRightButtonFile(self):
+        return self._getConfigurationOption(self.rightButtonFileOption)
 

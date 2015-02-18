@@ -49,6 +49,11 @@ def main():
                                        down=config.getMiddleButtonImage(),
                                        highlight=config.getMiddleButtonImage())
 
+    rightButton = pygbutton.PygButton(config.getRightButtonRect(),
+                                      normal=config.getRightButtonImage(),
+                                      down=config.getRightButtonImage(),
+                                      highlight=config.getRightButtonImage())
+
     # main loop
     while True:
 
@@ -71,9 +76,15 @@ def main():
                 pygame.mixer.music.load(config.getMiddleFile())
                 pygame.mixer.music.play(0)
 
+            rightButtonEvents = rightButton.handleEvent(event)
+            if 'click' in rightButtonEvents:
+                pygame.mixer.music.load(config.getRightButtonFile())
+                pygame.mixer.music.play(0)
+
         # add the button(s) to the display
         leftButton.draw(SCREEN)
         middleButton.draw(SCREEN)
+        rightButton.draw(SCREEN)
 
         # update the screen and sleep for a short period
         pygame.display.update()
