@@ -1,12 +1,18 @@
 
 import pygame
 
+from random import randint
+
 class Configuration:
+
+    backgroundImages = []
 
     optionNotFoundString = "ERROR - Unable to provide configuration option %s. No value found in file %s"
 
     # Expected options
     backgroundImageOption = "BackgroundImage"
+
+    fpsOption = "FPS"
 
     leftButtonRectOption = "LeftButtonRect"
     leftButtonImageOption = "LeftButtonImage"
@@ -51,7 +57,12 @@ class Configuration:
                 parts = curLine.split(',')
 
                 if (len(parts) == EXPECTED_PARTS_PER_LINE):
-                    ret[parts[0]] = parts[1]
+
+                    # provide special handling if this is a background image option
+                    if parts[0] == self.backgroundImageOption:
+                        self.backgroundImages.append(parts[1])
+                    else:
+                        ret[parts[0]] = parts[1]
 
         else:
             print "ERROR - Unable to open the provided configuration file: (%s)" % (file_path)
@@ -59,7 +70,10 @@ class Configuration:
         return ret
 
     def getBackgroundImagePath(self):
-        return self._getConfigurationOption(self.backgroundImageOption)
+        return self.backgroundImages[randint(0, len(self.backgroundImages) - 1)] 
+
+    def getFPS(self):
+        return int(self._getConfigurationOption(self.fpsOption))
 
     def getRectOption(self, optionName):
         rectString = self._getConfigurationOption(optionName)

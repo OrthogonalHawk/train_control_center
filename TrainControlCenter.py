@@ -11,7 +11,6 @@ import time
 ORIGIN = (0, 0)
 WINDOW_WIDTH = 480
 WINDOW_HEIGHT = 272
-FPS = 10
 
 def printUsage():
     print "%s <configurationFilePath>" % (sys.argv[0])
@@ -54,8 +53,16 @@ def main():
                                       down=config.getRightButtonImage(),
                                       highlight=config.getRightButtonImage())
 
+    ticks = 0
+
     # main loop
     while True:
+
+        # load and set the provided background image if it is time
+        if ticks % (config.getFPS() * 5) == 0:
+            SCREEN.fill((255,255,255))
+            backgroundImage = pygame.image.load(config.getBackgroundImagePath()).convert()
+            SCREEN.blit(backgroundImage, ORIGIN)
 
         # event handling, gets all event from the eventqueue
         for event in pygame.event.get():
@@ -88,8 +95,9 @@ def main():
 
         # update the screen and sleep for a short period
         pygame.display.update()
-        FPSCLOCK.tick(FPS)
-    
+        FPSCLOCK.tick(config.getFPS())
+        ticks += 1    
+
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
 if __name__=="__main__":

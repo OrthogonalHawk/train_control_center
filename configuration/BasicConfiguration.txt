@@ -1,4 +1,11 @@
-BackgroundImage,resources/images/ThomasWithWhiteBackground.jpg
+BackgroundImage,resources/images/Thomas.jpg
+BackgroundImage,resources/images/Spencer.png
+BackgroundImage,resources/images/Percy.png
+BackgroundImage,resources/images/Chuggington_Wilson.jpg
+BackgroundImage,resources/images/Chuggington_Koko.png
+BackgroundImage,resources/images/Chuggington_Brewster.png
+
+FPS,10
 
 LeftButtonRect,40;172;100;100
 LeftButtonImage,resources/images/TrainWhistleThumb.jpg
@@ -11,4 +18,5 @@ MiddleButtonFile,resources/sounds/ThomasTheme.mp3
 RightButtonRect,340;172;100;100
 RightButtonImage,resources/images/ChuggingtonThumb.jpg
 RightButtonFile,resources/sounds/ChuggingtonTheme.mp3
+
 
